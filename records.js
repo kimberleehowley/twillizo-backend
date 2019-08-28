@@ -16,11 +16,8 @@ function save(data){
   });
 }
 
-/**
- * Gets all quotes
- * @param None
- */
-function getQuotes(){
+// Returns all quotes 
+function getQuotes() {
   return new Promise((resolve, reject) => {
     fs.readFile('data.json', 'utf8', (err, data) => {
       if (err) {
@@ -33,14 +30,28 @@ function getQuotes(){
   });
 }
 
-/**
- * Gets a specific quote by ID
- * @param {number} id - Accepts the ID of the specified quote.
- */
-async function getQuote(id){
-  const quotes = await getQuotes();
-  return quotes.records.find(record => record.id == id);
+// Returns a quote with a specific id
+const getQuoteById = async (req, res) => {
+  try {
+    const { id } = req.params; 
+    const lyric = await getQuotes(id); 
+    if (lyric) {
+      res.status(200).json(lyric)
+    } else {
+      res.status(404).json({Error: "Not found"});
+    }
+  }
+  catch (error) {
+    res.status(500).json({Error: "Error"});
+  }
 }
+
+// Original code from tutorial that returns by ID 
+async function getQuote(id){
+   const quotes = await getQuotes();
+   return quotes.lyrics.find(record => record.id == id);
+}
+
 /**
  * Gets a random quote 
  * @param None
@@ -91,7 +102,8 @@ async function deleteQuote(record){
 
 module.exports = {
   getQuotes,
-  getQuote, 
+  getQuote,
+  getQuoteById,
   createQuote, 
   updateQuote, 
   deleteQuote,
