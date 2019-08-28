@@ -1,22 +1,22 @@
 {
   "lyrics": [
     {
-      "id": 0,
       "lyric": "Bling bling then I solve 'em that's the goddess in me 💎",
-      "song": "Truth Hurts"
+      "song": "Truth Hurts",
+      "id": 0
     },
     {
-      "id": 1,
       "lyric": "I know I'm a queen but I don't need no crown 🚫👑",
-      "song": "Soulmate"
+      "song": "Soulmate",
+      "id": 1
     },
     {
-      "id": 2,
       "quote": "The juice ain't worth the squeeze if the juice don't look like this 🍑",
-      "song": "Juice"
+      "song": "Juice",
+      "id": 2
     },
     {
-      "lyric": "Woke up in the mirror like damn she's the one!",
+      "lyric": "Woke up in the mirror, like damn she the one!",
       "song": "Soulmate",
       "id": 6685
     },

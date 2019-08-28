@@ -65,13 +65,13 @@ async function createQuote(newRecord) {
  * Updates a single record 
  * @param {Object} newQuote - An object containing the changes to quote: quote, author, year (all optional)
  */
-async function updateQuote(newQuote){
+async function updateQuote(newLyric){
   const quotes = await getQuotes();
-  let quote = quotes.records.find(item => item.id == newQuote.id);
+  let quote = quotes.lyrics.find(item => item.id == newLyric.id);
   
-  quote.quote = newQuote.quote;
-  quote.author = newQuote.author;
-  quote.year = newQuote.year;
+  quote.lyric = newLyric.lyric;
+  quote.song = newLyric.song;
+  
  
   await save(quotes);
 }

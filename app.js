@@ -10,38 +10,62 @@ app.use(express.json());
 app.get("/lyrics", async (req, res) => {
   try {
     const lyrics = await records.getQuotes();
-    res.status(200).json(lyrics);
+    res.json(lyrics);
   } catch (err) {
-    res.status(500).json({message: "Oops! Something is wrong."});
+    res.status(500).json({ message: err.message });
   }
-    
 });
 
 // Send a GET request to /lyrics/:id to read (view) a lyric
 app.get("/lyrics/:id", async (req, res) => {
   try {
     const lyric = await records.getQuote(req.params.id);
-    res.json(lyric);
+    if(lyric) {
+        res.json(lyric);  
+    } else {
+        res.status(404).json({message: "Lyric not found!"})
+    }
   } catch (err) {
-    res.status(500).json({ message: "Oops! Something is wrong." });
+    res.status(500).json({ message: err.message });
   }
 });
 
 // Send a POST request to /lyrics to add a new lyric
 app.post("/lyrics", async (req, res) => {
   try {
-    const newLyric = await records.createQuote({
-      lyric: req.body.lyric,
-      song: req.body.song
-    });
-    res.status(200).json(newLyric);
+    if (req.body.lyric && req.body.song) {
+        const newLyric = await records.createQuote({
+            lyric: req.body.lyric,
+            song: req.body.song
+          });
+          res.status(201).json(newLyric);
+    } else {
+        res.status(400).json({message: "Lyric and song required!"})
+    }
   } catch (err) {
-    res.status(500).json({ message: "Oops! Something is wrong." });
+    res.status(500).json({ message: err.message });
   }
 });
 
 // Send a PUT request to /lyrics/:id to update a lyric
-app.get("/lyrics/:id", (req, res) => {});
+app.put("/lyrics/:id", async (req, res) => {
+    try {
+        const lyric = await records.getQuote(req.params.id);
+        if (lyric) {
+            lyric.lyric = req.body.lyric; 
+            lyric.song = req.body.song; 
+
+            await records.updateQuote(lyric); 
+            res.status(204).end(); 
+        } else {
+            res.status(404).json({message: "Lyric not found!"})
+        }
+        
+    } catch(err) {
+        res.status(500).json({ message: err.message }); 
+    }
+
+});
 
 // Send a DELETE request to /lyrics/:id to delete a lyric
 app.get("/lyrics/:id", (req, res) => {});
