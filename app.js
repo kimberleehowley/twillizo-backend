@@ -68,7 +68,15 @@ app.put("/lyrics/:id", async (req, res) => {
 });
 
 // Send a DELETE request to /lyrics/:id to delete a lyric
-app.get("/lyrics/:id", (req, res) => {});
+app.delete("/lyrics/:id", async (req, res) => {
+    try {
+        const lyric = await records.getQuote(req.params.id);
+        await records.deleteQuote(lyric); 
+        res.status(204).end(); 
+    } catch(err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 
 // Send a GET request to lyrics/lyric/random to read a random lyric
 

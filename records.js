@@ -80,9 +80,9 @@ async function updateQuote(newLyric){
  * Deletes a single record
  * @param {Object} record - Accepts record to be deleted. 
  */
-async function deleteQuote(record){
+async function deleteQuote(lyric){
   const quotes = await getQuotes();
-  quotes.records = quotes.records.filter(item => item.id != record.id);
+  quotes.lyrics = quotes.lyrics.filter(item => item.id != lyric.id);
   await save(quotes);
 }
 
