@@ -5,8 +5,8 @@ const app = express();
 const records = require('./records'); 
 
 // Send a GET request to /lyrics to read all lyrics
-app.get('/lyrics', (req, res) => {
-    const lyrics = records.getQuotes(); 
+app.get('/lyrics', async (req, res) => {
+    const lyrics = await records.getQuotes(); 
     res.json(lyrics); 
 })
 
