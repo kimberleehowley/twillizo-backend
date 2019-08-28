@@ -19,8 +19,8 @@ app.get('/lyrics/:id', async (req, res) => {
 })
 
 // Send a POST request to /lyrics to add a new lyric
-app.post('/lyrics', (req, res) => {
-    const newLyric = records.createQuote({
+app.post('/lyrics', async (req, res) => {
+    const newLyric = await records.createQuote({
         lyric: req.body.lyric, 
         song: req.body.song, 
     });
