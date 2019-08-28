@@ -1,19 +1,19 @@
 {
-  "records": [
+  "lyrics": [
     {
-      "id": 8721,
-      "quote": "We must accept finite disappointment, but we must never lose infinite hope.",
-      "author": "Martin Luther King"
+      "id": 0,
+      "lyric": "Bling bling then I solve 'em that's the goddess in me 💎",
+      "song": "Truth Hurts"
     },
     {
-      "id": 5779,
-      "quote": "Use what you’ve been through as fuel, believe in yourself and be unstoppable!",
-      "author": "Yvonne Pierre"
+      "id": 1,
+      "lyric": "I know I'm a queen but I don't need no crown 🚫👑",
+      "song": "Soulmate"
     },
     {
-      "id": 3406,
-      "quote": "To succeed, you have to do something and be very bad at it for a while. You have to look bad before you can look really good.",
-      "author": "Barbara DeAngelis"
+      "id": 2,
+      "quote": "The juice ain't worth the squeeze if the juice don't look like this 🍑",
+      "song": "Juice"
     }
   ]
 }
