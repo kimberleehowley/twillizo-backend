@@ -4,6 +4,8 @@ const app = express();
 // Importing lyrics model for working with data 
 const records = require('./records'); 
 
+app.use(express.json()); 
+
 // Send a GET request to /lyrics to read all lyrics
 app.get('/lyrics', async (req, res) => {
     const lyrics = await records.getQuotes(); 
@@ -18,7 +20,11 @@ app.get('/lyrics/:id', async (req, res) => {
 
 // Send a POST request to /lyrics to add a new lyric
 app.post('/lyrics', (req, res) => {
-    
+    const newLyric = records.createQuote({
+        lyric: req.body.lyric, 
+        song: req.body.song, 
+    });
+    res.json(newLyric); 
 })
 
 // Send a PUT request to /lyrics/:id to update a lyric
