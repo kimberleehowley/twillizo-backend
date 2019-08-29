@@ -44,8 +44,8 @@ async function getQuote(id){
  */
 async function getRandomQuote(){
   const quotes = await getQuotes();
-  const randNum = Math.floor(Math.random() * quotes.records.length);
-  return quotes.records[randNum];
+  const randNum = Math.floor(Math.random() * quotes.lyrics.length);
+  return quotes.lyrics[randNum];
 }
 
 /**
