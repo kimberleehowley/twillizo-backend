@@ -6,19 +6,39 @@
       "id": 0
     },
     {
-      "lyric": "I know I'm a queen but I don't need no crown 🚫👑",
+      "lyric": "I know I'm a queen but I don't need no crown 👑",
       "song": "Soulmate",
       "id": 1
     },
     {
-      "quote": "The juice ain't worth the squeeze if the juice don't look like this 🍑",
+      "lyric": "The juice ain't worth the squeeze if the juice don't look like this 🍑",
       "song": "Juice",
       "id": 2
     },
     {
-      "lyric": "If I'm shinin', everybody gonna shine.",
+      "lyric": "If I'm shinin', everybody gonna shine 💖",
       "song": "Juice",
       "id": 7543
+    }, 
+    {
+      "lyric": "If you feel like a girl, then you real like a girl, do your thing run the whole damn world 🌏",
+      "song": "Like A Girl",
+      "id": 1235
+    }, 
+    {
+      "lyric": "Thick thighs save lives call me little buttercup 🌼",
+      "song": "Tempo",
+      "id": 1236
+    }, 
+    {
+      "lyric": "I'm tryna catch millions, I ain't tryna catch feelings 💸",
+      "song": "Blame It On Your Love",
+      "id": 1237
+    }, 
+    {
+      "lyric": "And that's the sound of me not calling you back 🔕",
+      "song": "Truth Hurts",
+      "id": 1238
     }
   ]
 }
