@@ -1,3 +1,5 @@
+require('dotenv').config(); 
+
 const express = require("express");
 const app = express();
 
@@ -23,5 +25,7 @@ app.use((err, req, res, next) => {
   });
 });
 
+const port = process.env.PORT || 5000;
+
 // Telling the app where to listen
-app.listen(3000, () => console.log("Lizzo API listening on port 3000!"));
+app.listen(port, () => console.log(`Lizzo API listening on http://localhost:${port}!`));
